@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Crear Cuenta{% endblock %}
+{% block content %}
+<style>
+  .errorlist{
+    color: red;
+  }
+  label, ul{
+    display: none;
+  }
+  .helptext{
+    display: none;
+  }
+  .errorlist{
+    display: block;
+  }
+</style>
+<main role="main">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-4 mx-auto mb-5">
+        <form action="" method="post">{% csrf_token %}
+          <h3 class="mb-4">Formulario de Registro</h3>
+            {{form.as_p}}
+            {% comment %} <input type="submit" class="btn btn-success btn-block" value="Acceder">
+            <input type="submit" class="btn btn-danger btn-block" value="Cancelar"> {% endcomment %}
+            <button class="btn btn-success btn-block" type="submit"><i class="fa fa-question"></i> Registrar</button>
+            <a href="{% url 'home' %}" class="btn btn-danger btn-block"><span class="fa fa-undo"></span> Cancelar</a>
+          </p>
+        </form>
+        <div class="text-center">
+          Already have an account ? <a class="small" href="{% url 'login' %}">Login</a>
+        </div>
+        <div class="text-center">
+          <a class="small" href="{% url 'password_reset' %}">Forgot your password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
